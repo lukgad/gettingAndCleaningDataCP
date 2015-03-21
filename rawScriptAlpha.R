@@ -50,9 +50,20 @@ features$V2 <- NULL
 names(allData)[2:ncol(allData)] <- make.names(features$FEATURE, unique = TRUE, allow_ = TRUE)
 
 ## select only mean and std features
-allData <- select(allData, which(grepl("std",names(allData))))
+allData <- select(allData, which(grepl("LABELID|mean|std",names(allData))))
 
+### LABELS
+## load labels
+labels <- read.csv("UCI HAR Dataset/activity_labels.txt",sep="", header = FALSE)
+labels <- mutate(labels, LABEL=as.character(V2))
+labels <- rename(labels, LID=V1)
+labels$V2 <- NULL
 
+## add labels to data
+library(sqldf)
+
+allData <- sqldf("SELECT l.LABEl, d.* FROM allData d LEFT JOIN labels l ON d.LABELID = l.LID")
+allData$LABELID <- NULL
 
 #xyTest
 nrow(xTest)
@@ -75,6 +86,12 @@ ncol(features)
 str(features)
 summary(features)
 
+#labels
+nrow(labels)
+ncol(labels)
+str(labels)
+summary(labels)
+
 ## allData
 nrow(allData)
 ## is number of rows correct?
@@ -84,7 +101,7 @@ ncol(allData) == ncol(xyTraining)
 ncol(allData) == ncol(xyTest)
 
 str(allData)
-
+names(allData)
 
 
 
