@@ -12,3 +12,4 @@ ncol(result)
 str(result)
 names(result)
 times
+write.table(result,file="./repo/gettingAndCleaningDataCP/tidy_means.txt", row.name = FALSE)
