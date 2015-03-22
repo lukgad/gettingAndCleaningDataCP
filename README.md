@@ -1,5 +1,7 @@
 # Getting And Cleaning Data - Cleaning and Tyding Human Activity Recognition Using Smartphones Data Set
 
+Warning - this readme file is written using Github Flavoured Markdown - some formatting maybe loss if viewing using different markdown parser.
+
 This reposity contains tools to extract average of feature variable from training and test data sets in UCI Machine Learning Reposity: Human Activity Recognition Using Smartphones Data Set.
 
 Original data set is present here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones .
@@ -59,4 +61,8 @@ To run this script you need:
         └── y_train.txt
    ```
    Default value for this argument is ```UCI HAR Dataset```. If your directory name is the same, you don't need to provide it.
+- the result of this function is data frame. All columns are described in CodeBook.md
+
+
+    
 
