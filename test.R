@@ -1,14 +1,14 @@
 cat("\014") ## clear screen
 
 dirName <- "UCI HAR Dataset"
-allData <- NULL
+result <- NULL
 source('./repo/gettingAndCleaningDataCP/run_analysis.R')
-times <- system.time(allData <- runAnalysis(dirName))
+times <- system.time(result <- runAnalysis(dirName))
 
 ## allData
-nrow(allData)
-ncol(allData)
+nrow(result)
+ncol(result)
 
-str(allData)
-names(allData)
+str(result)
+names(result)
 times
